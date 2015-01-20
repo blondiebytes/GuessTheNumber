@@ -33,15 +33,11 @@ def userTooSmall() :
     else:
         return "Nope!! You underestimate the power of my NUMBER!"
 
-def userCheckNum(user_input):
-    if user_input.isdigit:
-        return False
-    else:
-        print("Ha, ha, you don't even know what a number is!")
-        return True
+def isInputNum(user_input):
+    return user_input.isdigit
 
 def inputChecker(user_input):
-    if userCheckNum(user_input):
+    if not isInputNum(user_input):
         raise Exception("Ha, ha, you don't even know what a number is!")
 
 def goodByeText(my_num) :
@@ -55,7 +51,11 @@ my_number = random.randrange(0,100)
 # What we actually run....
 print(welcomeText())
 userInput = sys.stdin.readline()
-checkInput = inputChecker(userInput)
+try:
+    checkInput = inputChecker(userInput)
+except Exception:
+    print("Ha, ha, you don't even know what a number is!")
+
 userInput = int(userInput)
 while userInput != my_number:
     if userInput < my_number:
