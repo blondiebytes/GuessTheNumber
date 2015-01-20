@@ -6,7 +6,7 @@ import sys
 # The number is between 0 and 99.
 
 
-#TO DO - Figure out a way to get rid of casting; instead check if number, then cast?
+#TO DO - Figure out a way to get rid of repeat-code
 
 
 #FUNCTIONS
@@ -33,6 +33,12 @@ def userTooSmall() :
     else:
         return "Nope!! You underestimate the power of my NUMBER!"
 
+def userCheckNum(user_input):
+    if not user_input.isdigit:
+        print("Ha, ha, you don't even know what a number is!")
+        return True
+    else:
+        return False
 
 def goodByeText(my_num) :
     return "No, no, no! You figured out my secret number, %d! You must be some kind of mastermind \n" \
@@ -44,13 +50,18 @@ my_number = random.randrange(0,100)
 
 # What we actually run....
 print(welcomeText())
-userInput = int(sys.stdin.readline())
+userInput = sys.stdin.readline()
+while userCheckNum(userInput):
+    userInput = sys.stdin.readline()
+userInput = int(userInput)
 while userInput != my_number:
     if userInput < my_number:
         print(userTooSmall())
-        userInput = int(sys.stdin.readline())
+        while userCheckNum(userInput):
+            userInput = sys.stdin.readline()
     else :
         print(userTooBig())
-        userInput = int(sys.stdin.readline())
+        while userCheckNum(userInput):
+            userInput = sys.stdin.readline()
 
 print(goodByeText(my_number))
