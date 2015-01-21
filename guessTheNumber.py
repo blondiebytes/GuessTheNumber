@@ -2,6 +2,7 @@ import random
 import sys
 import Image
 
+
 #Guess the Number
 # In this game, the user tries to guess the number thought up by the computer.
 # The number is between 0 and 99.
@@ -19,7 +20,7 @@ def welcomeText() :
 
 # Image: Show Monkey Picture
 def showMonkey(mood) :
-    monkeyWithMood = PLY.Image.Image.open("monkey%s.png".format(mood))
+    monkeyWithMood = Image.open("monkey%s.png".format(mood))
     monkeyWithMood.show();
 
 # Message: if the user's guess is too big
