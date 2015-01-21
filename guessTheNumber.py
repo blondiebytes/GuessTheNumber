@@ -1,12 +1,11 @@
 import random
 import sys
+import Image
 
 #Guess the Number
 # In this game, the user tries to guess the number thought up by the computer.
 # The number is between 0 and 99.
 
-
-#TO DO - Figure out a way to get rid of repeat-code
 
 
 #FUNCTIONS
@@ -18,6 +17,10 @@ def welcomeText() :
            "but what it is... \nyou\'ll never know. So go ahead, " \
            "take a guess... and fail."
 
+# Image: Show Monkey Picture
+def showMonkey(mood) :
+    monkeyWithMood = PLY.Image.Image.open("monkey%s.png".format(mood))
+    monkeyWithMood.show();
 
 # Message: if the user's guess is too big
 def userTooBig() :
@@ -62,6 +65,7 @@ def goodByeText(my_num) :
 ninja_number = random.randrange(0, 100)
 
 # What we actually run....
+showMonkey("happy")
 print(welcomeText())
 userInput = sys.stdin.readline()
 inputCheckerV2(userInput)
@@ -77,5 +81,5 @@ while userInput != ninja_number:
         userInput = sys.stdin.readline()
         inputCheckerV2(userInput)
         userInput = int(userInput)
-
+showMonkey("sad")
 print(goodByeText(ninja_number))
