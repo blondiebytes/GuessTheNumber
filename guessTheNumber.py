@@ -20,8 +20,8 @@ def welcomeText() :
 
 # Image: Show Monkey Picture
 def showMonkey(mood) :
-    monkeyWithMood = Image.open("monkey%s.png".format(mood))
-    monkeyWithMood.show();
+    monkeyWithMood = Image.open("monkey{}s.png".format(mood))
+    monkeyWithMood.show()
 
 # Message: if the user's guess is too big
 def userTooBig() :
